@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="Main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventorymanagement.view_controller.MainController">
+   <top>
+      <Label text="Inventory Management System" BorderPane.alignment="TOP_LEFT">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <bottom>
+      <Button fx:id="exitButton" minWidth="100.0" mnemonicParsing="false" onAction="#handleExit" text="Exit" BorderPane.alignment="BOTTOM_RIGHT">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="15.0" top="10.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+   <center>
+      <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" stylesheets="@VerticalSplitPane.css" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane dividerPositions="0.15064102564102563, 0.8525641025641025" orientation="VERTICAL" prefHeight="314.0" prefWidth="399.0" stylesheets="@HorizontalSplitPane.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="15.0" text="Parts" />
+                              <TextField fx:id="partsTextField" layoutX="84.0" layoutY="10.0" prefHeight="27.0" prefWidth="180.0" />
+                              <Button fx:id="searchPartsButton" layoutX="283.0" layoutY="10.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleSearchParts" text="Search" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TableView fx:id="partsTableView" layoutX="5.0" layoutY="36.0" prefHeight="217.0" prefWidth="397.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columns>
+                                    <TableColumn fx:id="partIDColumn" prefWidth="75.0" text="ID" />
+                                    <TableColumn fx:id="partNameColumn" prefWidth="142.0" text="Name" />
+                                    <TableColumn fx:id="partInventoryColumn" prefWidth="76.0" text="Inventory" />
+                                    <TableColumn fx:id="partPriceColumn" prefWidth="103.0" text="Price" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="addPartButton" layoutX="14.0" layoutY="9.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleAddPart" text="Add" />
+                              <Button fx:id="modifyPartButton" layoutX="153.0" layoutY="8.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleModifyPart" text="Modify" />
+                              <Button fx:id="deletePartButton" layoutX="283.0" layoutY="8.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleDeletePart" text="Delete" />
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane dividerPositions="0.15064102564102563, 0.8525641025641025" layoutX="59.0" layoutY="29.0" orientation="VERTICAL" prefHeight="314.0" prefWidth="295.0" stylesheets="@HorizontalSplitPane.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="15.0" text="Products" />
+                              <TextField fx:id="productsTextField" layoutX="84.0" layoutY="10.0" prefHeight="27.0" prefWidth="180.0" />
+                              <Button fx:id="searchProductsButton" layoutX="283.0" layoutY="10.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleSearchProducts" text="Search" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TableView fx:id="productsTableView" prefHeight="217.0" prefWidth="397.0">
+                                 <columns>
+                                    <TableColumn fx:id="productIDColumn" prefWidth="75.0" text="ID" />
+                                    <TableColumn fx:id="productNameColumn" prefWidth="142.0" text="Name" />
+                                    <TableColumn fx:id="productInventoryColumn" prefWidth="76.0" text="Inventory" />
+                                    <TableColumn fx:id="productPriceColumn" prefWidth="103.0" text="Price" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="addProductButton" layoutX="14.0" layoutY="9.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleAddProduct" text="Add" />
+                              <Button fx:id="modifyProductButton" layoutX="153.0" layoutY="8.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleModifyProduct" text="Modify" />
+                              <Button fx:id="deleteProductButton" layoutX="283.0" layoutY="8.0" minWidth="100.0" mnemonicParsing="false" onAction="#handleDeleteProduct" text="Delete" />
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </center>
+</BorderPane>
